@@ -1,0 +1,21 @@
+{
+  "aluno": [
+    {
+      "id": 2,
+      "name": "william",
+      "email": "willgsvs@hotmail.com",
+      "rg": "45717789890",
+      "telefone": "11908765449"
+    }
+  ],
+  "professor": [
+    {
+      "id": 1,
+      "name": "adsad",
+      "email": "adsada",
+      "rg": "12132434",
+      "telefone": "asdasd"
+    }
+
+  ]
+}

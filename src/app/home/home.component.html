@@ -16,15 +16,23 @@
         <th scope="col">Rg Aluno</th>
         <th scope="col">Telefone Aluno</th>
 
+        <button class="btn btn-primary me-1" >Editar</button>
+        <button class="btn btn-primary" >Excluir</button>
+
 
       </tr>
     </thead>
     <tbody>
 
+      <tr *ngFor="let aluno of aluno" >
+        <th scope="row">{{aluno.id}}</th>
+        <td>{{aluno.name}} </td>
+        <td>{{aluno.email}}</td>
+        <td>{{aluno.rg}}</td>
+        <td>{{aluno.telefone}}</td>
 
 
-        <button class="btn btn-primary me-1" >Editar</button>
-        <button class="btn btn-primary" >Excluir</button>
+
 
 
     </tbody>
@@ -56,6 +64,8 @@
         <th scope="col">Rg Professor</th>
         <th scope="col">Telefone Professor</th>
 
+        <button class="btn btn-primary me-1" >Editar</button>
+        <button class="btn btn-primary" >Excluir</button>
 
       </tr>
     </thead>
@@ -63,8 +73,13 @@
 
 
 
-        <button class="btn btn-primary me-1" >Editar</button>
-        <button class="btn btn-primary" >Excluir</button>
+
+        <tr *ngFor="let professor of professor" >
+          <th scope="row">{{professor.id}}</th>
+          <td>{{professor.name}} </td>
+          <td>{{professor.email}}</td>
+          <td>{{professor.rg}}</td>
+          <td>{{professor.telefone}}</td>
 
 
     </tbody>
