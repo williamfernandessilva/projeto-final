@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProfessorService } from './../professor.service';
+
 
 @Component({
   selector: 'app-professor',
@@ -10,14 +12,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ProfessorComponent implements OnInit {
 
 
-  formGroupProfessor!: FormGroup;
+  formGroupProfessor: FormGroup;
   submitted: boolean = false;
   isEditing : boolean = false;
-  ProfessorService: any;
+
+
 
   constructor( private formBuilder: FormBuilder,
     private route : ActivatedRoute,
-    private router : Router
+    private router : Router,
+    private professorService: ProfessorService
 
 
 
@@ -38,7 +42,7 @@ export class ProfessorComponent implements OnInit {
 
 
         getClientById(id: number) {
-          this.ProfessorService.getClient(id).subscribe({
+          this.professorService.getProfessor(id).subscribe({
             next: data =>{ this.formGroupProfessor.setValue(data);
               this.isEditing = true;
             }
@@ -51,18 +55,18 @@ export class ProfessorComponent implements OnInit {
           this.submitted = true;
           if(this.formGroupProfessor.value){
             if(this.isEditing){
-            this.ProfessorService.update(this.formGroupProfessor.value).subscribe({
+            this.professorService.update(this.formGroupProfessor.value).subscribe({
               next: () =>{
-                    this.router.navigate(['clients']);
+                    this.router.navigate(['home']);
 
               }
             })
 
           }
           else{
-            this.ProfessorService.save(this.formGroupProfessor.value).subscribe({
+            this.professorService.save(this.formGroupProfessor.value).subscribe({
               next: () => {
-                this.router.navigate(['clients']);
+                this.router.navigate(['home']);
               }
             })
           }
@@ -73,7 +77,7 @@ export class ProfessorComponent implements OnInit {
 
       cancel(){
 
-        this.router.navigate(['clients']);
+        this.router.navigate(['home']);
       }
 
       get name( ) : any {

@@ -10,26 +10,25 @@ export class ProfessorService {
   url = " http://localhost:3000/professor";
   constructor(private http: HttpClient) { }
 
-  getProfessor(): Observable<Professor[]>{
+  getProfessores(): Observable<Professor[]>{
     return this.http.get<Professor[]>(this.url)
-
-   }
-   getprofessor(id: number): Observable<Professor[]> {
+  }
+   getProfessor(id: number): Observable<Professor[]> {
     return this.http.get<Professor[]>(`${this.url}/${id}`);
    }
 
 
 
-   savep(Professor:Professor):Observable<Professor>{
-    return this.http.post<Professor>(this.url,Professor);
+   save(professor:Professor):Observable<Professor>{
+    return this.http.post<Professor>(this.url,professor);
 
    }
-   updatep(Professor:Professor): Observable<Professor>
+   update(professor:Professor): Observable<Professor>
   {
-    return this.http.put<Professor>(`${this.url}/${Professor.id}`, Professor);
+    return this.http.put<Professor>(`${this.url}/${professor.id}`, professor);
   }
-   deletep(Professor:Professor):Observable<void>{
-    return this.http.delete<void>(`${this.url}/${Professor.id}`);
+   delete(professor:Professor):Observable<void>{
+    return this.http.delete<void>(`${this.url}/${professor.id}`);
 
    }
 }

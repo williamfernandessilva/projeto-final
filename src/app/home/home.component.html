@@ -16,8 +16,6 @@
         <th scope="col">Rg Aluno</th>
         <th scope="col">Telefone Aluno</th>
 
-        <button class="btn btn-primary me-1" >Editar</button>
-        <button class="btn btn-primary" >Excluir</button>
 
 
       </tr>
@@ -31,6 +29,8 @@
         <td>{{aluno.rg}}</td>
         <td>{{aluno.telefone}}</td>
 
+        <button class="btn btn-primary me-1" >Editar</button>
+        <button class="btn btn-primary" >Excluir</button>
 
 
 
@@ -54,7 +54,7 @@
 <form class="text-center" >
 
   <div>
-    <button class="btn btn-primary"  >Novo</button>
+    <button class="btn btn-primary" (click)="create()" >Novo</button>
 <table class="table table-striped ">
     <thead>
       <tr>
@@ -64,8 +64,7 @@
         <th scope="col">Rg Professor</th>
         <th scope="col">Telefone Professor</th>
 
-        <button class="btn btn-primary me-1" >Editar</button>
-        <button class="btn btn-primary" >Excluir</button>
+
 
       </tr>
     </thead>
@@ -81,6 +80,8 @@
           <td>{{professor.rg}}</td>
           <td>{{professor.telefone}}</td>
 
+          <button class="btn btn-primary me-1"(click)="edit(professor)" >Editar</button>
+          <button class="btn btn-primary" (click)="delete(professor)">Excluir</button>
 
     </tbody>
   </table>

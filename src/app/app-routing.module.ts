@@ -9,6 +9,7 @@ const routes: Routes = [
   {path : 'aluno', component: AlunoComponent},
   {path : 'professor', component: ProfessorComponent},
   {path: 'professorDatails/:id', component : ProfessorComponent},
+  {path: 'createprofessor', component : ProfessorComponent},
 ];
 
 @NgModule({

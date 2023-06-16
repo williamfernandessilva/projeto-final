@@ -1,9 +1,9 @@
+import { Professor } from './../professor';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ThisReceiver } from '@angular/compiler';
 import { Router } from '@angular/router';
 import { Escola } from '../escola';
-import { Professor } from '../professor';
 import { ProfessorService } from '../professor.service';
 
 @Component({
@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
 
   }
   loadProfessor() {
-    this.professorService.getProfessor().subscribe(
+    this.professorService.getProfessores().subscribe(
       {
         next : data => this.professor = data
       }
@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
 
 
  create(){
-  this.router.navigate(['createProfessor']);
+  this.router.navigate(['createprofessor']);
  }
 
 
@@ -51,8 +51,8 @@ export class HomeComponent implements OnInit {
 
   }
 
-  delete(client: Professor){
-    this.professorService.deletep(client).subscribe({
+  delete(Professor: Professor){
+    this.professorService.delete(Professor).subscribe({
       next: ()=> this.loadProfessor()
     })
 
