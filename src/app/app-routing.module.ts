@@ -8,7 +8,7 @@ const routes: Routes = [
   {path : 'home', component: HomeComponent},
   {path : 'aluno', component: AlunoComponent},
   {path : 'professor', component: ProfessorComponent},
-  {path: 'professorDatails/:id', component : ProfessorComponent},
+  {path: 'professorDetails/:id', component : ProfessorComponent},
   {path: 'createprofessor', component : ProfessorComponent},
 ];
 

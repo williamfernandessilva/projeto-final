@@ -1,34 +1,48 @@
 {
   "aluno": [
     {
+      "id": 1,
+      "name": "nicolas",
+      "email": "nicolasgay@hotmail.com",
+      "rg": "17862231-23",
+      "telefone": "(18)765123128"
+    },
+    {
       "id": 2,
-      "name": "william",
-      "email": "willgsvs@hotmail.com",
-      "rg": "45717789890",
-      "telefone": "11908765449"
+      "name": "emilio",
+      "email": "emiliogay@hotmail.com",
+      "rg": "178263126313",
+      "telefone": "(11)238121231"
+    },
+    {
+      "id": 3,
+      "name": "awdawd",
+      "email": "",
+      "rg": "",
+      "telefone": ""
     }
   ],
   "professor": [
     {
-      "id": 1,
-      "name": "adsad",
-      "email": "adsada",
-      "rg": "12132434",
-      "telefone": "asdasd"
-    },
-    {
       "id": 13,
-      "name": "",
-      "rg": "",
-      "telefone": "",
-      "email": ""
+      "name": "kaue",
+      "rg": "1828910-12",
+      "email": "kue@fatec.com",
+      "telefone": "(11)4828-1829"
     },
     {
       "id": 14,
-      "name": "",
-      "rg": "",
-      "telefone": "",
-      "email": ""
+      "name": "nicolas",
+      "rg": "1039328-99",
+      "email": "nicole@fatec.com",
+      "telefone": "(11)13638-1987"
+    },
+    {
+      "id": 15,
+      "name": "awdawdawd",
+      "rg": "aaaaaaaaaa",
+      "email": "",
+      "telefone": ""
     }
   ]
 }

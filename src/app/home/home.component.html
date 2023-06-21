@@ -1,53 +1,5 @@
 
-<p class="text-center display-5">Tabela Aluno</p>
-
-
-
-<form  >
-
-  <div class="text-center">
-    <button class="btn btn-primary"  >Novo</button>
-<table class="table table-striped ">
-    <thead>
-      <tr>
-        <th scope="col">Id Aluno</th>
-        <th scope="col">Nome Aluno</th>
-        <th scope="col">Email Aluno</th>
-        <th scope="col">Rg Aluno</th>
-        <th scope="col">Telefone Aluno</th>
-
-
-
-      </tr>
-    </thead>
-    <tbody>
-
-      <tr *ngFor="let aluno of aluno" >
-        <th scope="row">{{aluno.id}}</th>
-        <td>{{aluno.name}} </td>
-        <td>{{aluno.email}}</td>
-        <td>{{aluno.rg}}</td>
-        <td>{{aluno.telefone}}</td>
-
-        <button class="btn btn-primary me-1" >Editar</button>
-        <button class="btn btn-primary" >Excluir</button>
-
-
-
-
-    </tbody>
-  </table>
-</div>
-</form>
-
-
-
-
-
 <br><br>
-
-
-
 
 <p class="text-center display-5">Tabela Professor</p>
 
@@ -64,24 +16,19 @@
         <th scope="col">Rg Professor</th>
         <th scope="col">Telefone Professor</th>
 
-
-
       </tr>
     </thead>
     <tbody>
 
+        <tr *ngFor="let dados of professor" >
+          <th scope="row">{{dados.id}}</th>
+          <td>{{dados.name}} </td>
+          <td>{{dados.email}}</td>
+          <td>{{dados.rg}}</td>
+          <td>{{dados.telefone}}</td>
 
-
-
-        <tr *ngFor="let professor of professor" >
-          <th scope="row">{{professor.id}}</th>
-          <td>{{professor.name}} </td>
-          <td>{{professor.email}}</td>
-          <td>{{professor.rg}}</td>
-          <td>{{professor.telefone}}</td>
-
-          <button class="btn btn-primary me-1"(click)="edit(professor)" >Editar</button>
-          <button class="btn btn-primary" (click)="delete(professor)">Excluir</button>
+          <button class="btn btn-primary me-1"(click)="edit(dados)" >Editar</button>
+          <button class="btn btn-primary" (click)="delete(dados)">Excluir</button>
 
     </tbody>
   </table>

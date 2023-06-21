@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, OnIni
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProfessorService } from './../professor.service';
+import { Professor } from '../professor';
 
 
 @Component({
@@ -12,9 +13,10 @@ import { ProfessorService } from './../professor.service';
 export class ProfessorComponent implements OnInit {
 
 
-  formGroupProfessor: FormGroup;
+  formGroupClient : FormGroup;
   submitted: boolean = false;
   isEditing : boolean = false;
+
 
 
 
@@ -26,24 +28,24 @@ export class ProfessorComponent implements OnInit {
 
 
     ) {
-      this.formGroupProfessor = formBuilder.group({
+      this.formGroupClient = formBuilder.group({
       id : [''],
       name : ['', [Validators.required]],
       rg : ['', [Validators.required]],
+      email : ['', [Validators.required, Validators.email]],
       telefone : ['', [Validators.required]],
-      email : ['', [Validators.required, Validators.email]]
 
       });
       }
         ngOnInit(): void {
           const id = Number(this.route.snapshot.paramMap.get("id"));
-          this.getClientById(id);
+          this.getProfessorById(id);
         }
 
 
-        getClientById(id: number) {
+        getProfessorById(id: number) {
           this.professorService.getProfessor(id).subscribe({
-            next: data =>{ this.formGroupProfessor.setValue(data);
+            next: data =>{ this.formGroupClient.setValue(data);
               this.isEditing = true;
             }
           })
@@ -53,9 +55,9 @@ export class ProfessorComponent implements OnInit {
 
       save(){
           this.submitted = true;
-          if(this.formGroupProfessor.value){
+          if(this.formGroupClient.value){
             if(this.isEditing){
-            this.professorService.update(this.formGroupProfessor.value).subscribe({
+            this.professorService.update(this.formGroupClient.value).subscribe({
               next: () =>{
                     this.router.navigate(['home']);
 
@@ -64,7 +66,7 @@ export class ProfessorComponent implements OnInit {
 
           }
           else{
-            this.professorService.save(this.formGroupProfessor.value).subscribe({
+            this.professorService.save(this.formGroupClient.value).subscribe({
               next: () => {
                 this.router.navigate(['home']);
               }
@@ -81,18 +83,18 @@ export class ProfessorComponent implements OnInit {
       }
 
       get name( ) : any {
-        return this.formGroupProfessor.get("name");
+        return this.formGroupClient.get("name");
       }
 
       get email( ) : any {
-        return this.formGroupProfessor.get("email");
+        return this.formGroupClient.get("email");
       }
 
       get rg( ) : any {
-        return this.formGroupProfessor.get("rg");
+        return this.formGroupClient.get("rg");
       }
       get telefone( ) : any {
-        return this.formGroupProfessor.get("telefone");
+        return this.formGroupClient.get("telefone");
       }
 
 

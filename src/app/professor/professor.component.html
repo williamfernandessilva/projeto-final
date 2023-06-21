@@ -1,3 +1,11 @@
+<form [formGroup]="formGroupClient">
+  <div class="mb-3">
+<div class="display-6 text-center">
+  </div>
+</div>
+
+
+
 <p class="text-center display-5">Cadastro Professor</p>
 
 
@@ -22,24 +30,38 @@
     </div>
 
 
-
-    <div class="mb-3">
-      <label for="email" class="form-label">Email Professor:</label>
-      <input type="email" formControlName="email"   class="form-control" id="email" placeholder="Email">
+    <div *ngIf="submitted && name.invalid">
+      <small class="text-info">Nome Inválido</small>
     </div>
 
-
-     <div class="mb-3">
+    <div class="mb-3">
       <label for="rg" class="form-label">Rg:</label>
       <input type="text" formControlName="rg"   class="form-control" id="rg" placeholder="Rg">
     </div>
+
+
+    <div *ngIf="submitted && rg.invalid">
+      <small class="text-info">Rg Inválido</small>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email Professor:</label>
+      <input type="text" formControlName="email"   class="form-control" id="email" placeholder="Email">
+    </div>
+
+    <div *ngIf="submitted && email.invalid">
+      <small class="text-info">Email Inválido</small>
+    </div>
+
 
     <div class="mb-3">
       <label for="telefone" class="form-label">Telefone Professor:</label>
       <input type="text" formControlName="telefone"   class="form-control" id="telefone" placeholder="Telefone">
     </div>
 
-
+    <div *ngIf="submitted && telefone.invalid">
+      <small class="text-info">Telefone Inválido</small>
+    </div>
 
     <div class="mb-3">
     <button class="btn btn-primary me-1"(click)="save()">Salvar</button>

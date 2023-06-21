@@ -1,3 +1,6 @@
+
+
+
 <p class="text-center display-5">Cadastro Aluno</p>
 
 
@@ -10,15 +13,20 @@
 
 
 
-    <div class="mb-3">
-<div class="display-6 text-center">
+
+    <form [formGroup]="formGroupClient">
+      <div class="mb-3">
+  <div class="display-6 text-center">
+      </div>
     </div>
-  </div>
+
 
     <div class="mb-3">
       <label for="name" class="form-label">Nome Aluno:</label>
       <input type="text" formControlName="name"    class="form-control" id="name" placeholder="Nome">
     </div>
+
+    
 
 
 
@@ -26,6 +34,7 @@
       <label for="email" class="form-label">Email Aluno:</label>
       <input type="email" formControlName="email"   class="form-control" id="email" placeholder="Email">
     </div>
+
 
 
 
@@ -42,8 +51,50 @@
 
 
     <div class="mb-3">
-    <button class="btn btn-primary me-1">Salvar</button>
-    <button class="btn btn-secondary me-1">Voltar</button>
+    <button class="btn btn-primary me-1 text-center" (click)="save()">Salvar</button>
+
 
   </div>
+
+  <p class="text-center display-5">Tabela Aluno</p>
+
+
+    </form>
+
+
+  <div class="text-center">
+
+<table class="table table-striped ">
+    <thead>
+      <tr>
+        <th scope="col">Id Aluno</th>
+        <th scope="col">Nome Aluno</th>
+        <th scope="col">Email Aluno</th>
+        <th scope="col">Rg Aluno</th>
+        <th scope="col">Telefone Aluno</th>
+
+
+
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let escola of Escola" >
+        <th scope="row">{{escola.id}}</th>
+        <td>{{escola.name}} </td>
+        <td>{{escola.email}}</td>
+        <td>{{escola.rg}}</td>
+        <td>{{escola.telefone}}</td>
+
+        <button class="btn btn-primary me-1" (click)="edit(escola)" >Editar</button>
+        <button class="btn btn-primary"(click)="delete(escola)" >Excluir</button>
+
+
+
+
+    </tbody>
+  </table>
+</div>
+
+
 

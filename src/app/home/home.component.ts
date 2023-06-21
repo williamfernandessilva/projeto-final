@@ -13,8 +13,8 @@ import { ProfessorService } from '../professor.service';
 })
 export class HomeComponent implements OnInit {
 
-  aluno: Escola[] = [];
-  professor: Professor[] = [];
+
+ professor: Professor[] = [];
 
 
   constructor(private professorService: ProfessorService,
@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadProfessor();
+
 
   }
   loadProfessor() {
@@ -37,6 +38,8 @@ export class HomeComponent implements OnInit {
   }
 
 
+
+
  create(){
   this.router.navigate(['createprofessor']);
  }
@@ -44,7 +47,7 @@ export class HomeComponent implements OnInit {
 
 
   edit(professor: Professor){
-    this.router.navigate(['professorDatails', professor.id]);
+    this.router.navigate(['professorDetails', professor.id]);
 
 
 
